@@ -43,7 +43,7 @@ for path, subdir, files in os.walk(fname):
        if not(os.path.exists(procdir)):
           os.mkdir(procdir)
    
-   for name in files:
+    for name in files:
       # get a full path to pass to function
       fn = os.path.join(path, name)
       # get the file extension
