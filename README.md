@@ -2,7 +2,7 @@
 
 Python script to convert files in place in a folder. The script walks
 the folder looking for subfolders containing files. When it finds one
-it creates a folder one level up called 'access' and writes converted
+it creates a folder at the same level called 'access' and writes converted
 files to it. A timestamped logfile is written to the directory from
 which the script is run.
 
