@@ -29,7 +29,7 @@ aggies = parser.parse_args()
 # set up logfile
 fname = os.getcwd() if aggies.folder == '.' else aggies.folder
 dname = os.path.basename(os.path.normpath(fname))
-tstamp = datetime.date.strftime(datetime.datetime.now(), "%m%d%y%M%S")
+tstamp = datetime.date.strftime(datetime.datetime.now(), "%y%m%d%M%S")
 logfn = os.path.join(os.path.normpath(aggies.folder),'..', f"{tstamp}_{dname}_log.txt")
 logf = open(logfn, 'w', encoding="utf-8")
 
