@@ -4,17 +4,13 @@ import argparse
 import datetime
 
 # converter functions. Must take 2 arguments: filename and output directory.
-def wp_to_pdf(fn, pdir):
-   cmdstr = 'soffice --convert-to pdf --outdir "' + pdir + '" "' + fn + '"'
-   os.system(cmdstr)
-
 def tif2pdf(fn, pdir):
    outf = os.path.join(pdir, os.path.basename(fn) + '.pdf')
    cmdstr = 'convert -density 120 -quality 10 -compress jpeg ' + fn + ' ' + outf
    os.system(cmdstr)
    
 # dictionary of format conversions: keys are extensions, value is function to call for conversion 
-formats = {'.doc':wp_to_pdf, '.docx':wp_to_pdf, '.wp':wp_to_pdf, '.wpd':wp_to_pdf, '.pub':wp_to_pdf, '.tif':tif2pdf }
+formats = {'.tif':tif2pdf }
 
 # make a list of extensions
 fkeys = list(formats.keys())
