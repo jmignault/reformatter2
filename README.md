@@ -13,19 +13,15 @@ directory containing the directory to convert:
 
 for example.
 
-The script requires that the `convert` command line tool which is part
+The script requires that the `magick` command line tool which is part
 of the `Imagemagick` graphics software package be installed.
-`convert` is a headless executable which is part of the default
+`magick` is a headless executable which is part of the default
 installation of [Imagemagick.](https://www.imagemagick.org
 "Imagemagick site")
 
-Once installed `convert` needs to be on the executable path. This is
-done by prepending its directory to the PATH environment
-variable. Normally we would append the directory, but Windows has a 
-built-in executable also named `convert`. Thus we have to add the 
-directory to the front of path so it is found first.
-
-For example, on Windows, this would be done by typing the
+Once installed `magick` needs to be on the executable path. This is
+done by appending its directory to the PATH environment
+variable. For example, on Windows, this would be done by typing the
 following in a CMD shell:
 
 `set PATH=C:\Libs\ImageMagick-6.8.8-4;%PATH%`

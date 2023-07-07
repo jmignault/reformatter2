@@ -10,7 +10,7 @@ def tif2pdf(fn, pdir):
    # outf = os.path.join(pdir, os.path.basename(fn) + '.pdf')
    globs = glob(os.path.join(pdir, "*.tif"))
    globs.sort()
-   cmdstr = f'convert -density 120 -quality 10 -compress jpeg {" ".join(globs)} {fn}'
+   cmdstr = f'magick -density 120 -quality 10 -compress jpeg {" ".join(globs)} {fn}'
    os.system(cmdstr)
    
 # dictionary of format conversions: keys are extensions, value is function to call for conversion 
