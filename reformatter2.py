@@ -13,7 +13,7 @@ def tif2pdf(fn, pdir):
    globs = glob("*.tif")
    globs.sort()
    cmdstr = f'magick -density 120 -quality 10 -compress jpeg {" ".join(globs)} ../access/{os.path.basename(fn)}'
-   print(f'Converting {len(globs)} files, this may take some time.')
+   print(f'Converting {len(globs)} files, please wait...')
    os.system(cmdstr)
    os.chdir(cdir)
    
