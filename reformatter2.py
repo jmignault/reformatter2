@@ -85,8 +85,8 @@ for path, subdir, files in os.walk(fname):
             except BaseException as err:
                 logf.write(f"{lstamp}:Could not convert {fn}: {err}")
                 
-            else:
-                # not converting, log that file was skipped
-                logf.write(f"{lstamp}: Skipped {fn}\n")
+        else:
+            # not converting, log that file was skipped
+            logf.write(f"{lstamp}: Skipped {fn}\n")
 logf.close()
 
