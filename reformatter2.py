@@ -80,7 +80,7 @@ for path, subdir, files in os.walk(fname):
                 pdfpath = PurePath(fn)
                 pdffn = os.path.join(procdir, pdfpath.parts[1] + '.pdf')
                 formats[ext](pdffn, path)
-                logstr = f"{lstamp}: Converted {path} to pdf\n"
+                logstr = f"{lstamp}: Converted {path} to pdf ({len(files)} files)\n"
                 logf.write(logstr)            
             except BaseException as err:
                 logf.write(f"{lstamp}:Could not convert {fn}: {err}")
