@@ -20,9 +20,10 @@ installation of [Imagemagick.](https://www.imagemagick.org
 "Imagemagick site")
 
 Once installed `magick` needs to be on the executable path. This is
-done by appending its directory to the PATH environment
-variable. For example, on Windows, this would be done by typing the
-following in a CMD shell:
+done by prepending its directory to the PATH environment variable. For
+example, on Windows, this would be done by typing the following in a
+CMD shell (note that you should use the actual location where the
+Imagemagick software is intalled on your system):
 
 `set PATH=C:\Libs\ImageMagick-6.8.8-4;%PATH%`
 
