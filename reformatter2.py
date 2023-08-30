@@ -8,7 +8,7 @@ from pathlib import PurePath
 # converter functions. Must take 2 arguments: filename and output directory.
 def tif2pdf(fn, pdir):
     # outf = os.path.join(pdir, os.path.basename(fn) + '.pdf')
-    cmd_prefix = 'magick -density 120 -quality 10 -compress jpeg'
+    cmd_prefix = 'magick -density 72 -quality 40 -compress jpeg'
     cdir = os.getcwd()
     os.chdir(pdir)
     globs = glob("*.tif")
