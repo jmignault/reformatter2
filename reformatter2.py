@@ -38,9 +38,42 @@ def tif2pdf(fn, pdir):
       except BaseException as err:
           print(f"{lstamp}:Could not convert {fn}: {err}")
     os.chdir(cdir)
-   
+
+def jpx2pdf(fn, pdir):
+    # outf = os.path.join(pdir, os.path.basename(fn) + '.pdf')
+    cmd_prefix = 'magick -density 72 -quality 40 -compress jpeg'
+    cdir = os.getcwd()
+    os.chdir(pdir)
+    globs = glob("*.jp*")
+    globs.sort()
+    num_imgs = len(globs)
+    if num_imgs < 200:
+        cmdstr = f'{cmd_prefix} {" ".join(globs)} ../access/{os.path.basename(fn)}'
+        print(f'Combining {len(globs)} files, please wait...')
+        os.system(cmdstr)
+    else:
+        #cut into two slices
+      first_set = globs[:num_imgs//2]
+      second_set = globs[num_imgs//2:]
+
+      # define filenames for broken-out files
+      first_set_fn = f'../access/{os.path.basename(fn)[0:-4]}-1.pdf'
+      second_set_fn = f'../access/{os.path.basename(fn)[0:-4]}-2.pdf'
+
+      try:
+          # make 2 PDFs
+          print(f'Creating {first_set_fn} by combining {len(first_set)} files, please wait')
+          first_cmd = f'{cmd_prefix} {" ".join(first_set)} {first_set_fn}'
+          os.system(first_cmd)
+          print(f'Creating {second_set_fn} by combining {len(second_set)} files, please wait')
+          second_cmd = f'{cmd_prefix} {" ".join(second_set)} {second_set_fn}'
+          os.system(second_cmd)
+      except BaseException as err:
+          print(f"{lstamp}:Could not convert {fn}: {err}")
+    os.chdir(cdir)
+
 # dictionary of format conversions: keys are extensions, value is function to call for conversion 
-formats = {'.tif':tif2pdf }
+formats = {'.tif':tif2pdf, '.jpg':jpx2pdf, '.jpeg':jpx2pdf, '.jp2':jpx2pdf }
 
 # make a list of extensions
 fkeys = list(formats.keys())
